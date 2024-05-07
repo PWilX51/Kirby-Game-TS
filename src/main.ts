@@ -1,6 +1,6 @@
 import { k } from "./kaboomCtx";
 import { makeMap } from "./utils";
-import { makePlayer, setControls } from "./entities";
+import { makeFlameEnemy, makePlayer, setControls } from "./entities";
 
 async function gameSetup(){
   k.loadSprite("assets", "./kirby-like.png", {
@@ -48,7 +48,11 @@ async function gameSetup(){
     k.onUpdate(() => {
       if(kirb.pos.x < level1Layout.pos.x + 432)
         k.camPos(kirb.pos.x + 500, 870);
-    })
+    });
+
+    for (const flame of level1SpawnPoints.flame) {
+      makeFlameEnemy(k, flame.x, flame.y);
+    }
   });
 
   k.go("level-1");
