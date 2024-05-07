@@ -1,6 +1,6 @@
 import { k } from "./kaboomCtx";
 import { makeMap } from "./utils";
-import { makeFlameEnemy, makePlayer, setControls } from "./entities";
+import { makeBirdEnemy, makeFlameEnemy, makeGuyEnemy, makePlayer, setControls } from "./entities";
 
 async function gameSetup(){
   k.loadSprite("assets", "./kirby-like.png", {
@@ -44,7 +44,7 @@ async function gameSetup(){
 
     setControls(k, kirb);
     k.add(kirb);
-    k.camScale(k.vec2(0.7));
+    k.camScale(0.7, 0.7);
     k.onUpdate(() => {
       if(kirb.pos.x < level1Layout.pos.x + 432)
         k.camPos(kirb.pos.x + 500, 870);
@@ -52,6 +52,22 @@ async function gameSetup(){
 
     for (const flame of level1SpawnPoints.flame) {
       makeFlameEnemy(k, flame.x, flame.y);
+    }
+
+    for (const guy of level1SpawnPoints.guy) {
+      makeGuyEnemy(k, guy.x, guy.y);
+    }
+
+    for (const bird of level1SpawnPoints.bird) {
+      const possibleSpeeds = [100, 200, 300];
+      k.loop(10, () => {
+        makeBirdEnemy(
+          k,
+          bird.x,
+          bird.y,
+          possibleSpeeds[Math.floor(Math.random()*possibleSpeeds.length)],
+        );
+      });
     }
   });
 

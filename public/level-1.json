@@ -205,6 +205,18 @@
                  "width":0,
                  "x":427.5,
                  "y":80.5
+                }, 
+                {
+                 "height":0,
+                 "id":16,
+                 "name":"guy",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":152,
+                 "y":255.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -244,7 +256,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":16,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
@@ -253,7 +265,7 @@
         {
          "columns":9,
          "firstgid":1,
-         "image":"..\/public\/kirby-like.png",
+         "image":"kirby-like.png",
          "imageheight":160,
          "imagewidth":144,
          "margin":0,
